@@ -1,0 +1,46 @@
+<div style="height:60%;">
+<div style="min-height:300px">
+<div class=" card bg-dark txt-white border">
+  <div class="card-header text-white">
+    {{titulo}}
+  </div>
+  <div class="card-body">
+    <form (ngSubmit)="login()">
+    <div class="form-group row">
+      <label for="nombre" class="text-white col-form-label col-sm-2 text-end">Usuario:</label>
+      <div class="col-sm-6">
+        <input type="text"
+              name="nombre"
+              [(ngModel)]="usuario.username"
+              class="form-control"
+              placeholder="Ingresa el nombre de Usuario"
+              required
+        >
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="nombre" class="text-white col-form-label col-sm-2 text-end">Contraseña:</label>
+      <div class="col-sm-6">
+        <input type="password"
+              name="password"
+              [(ngModel)]="usuario.password"
+              class="form-control mt-1  "
+              placeholder="Ingresa la Contraseña"
+              required
+        >
+      </div>
+    </div>
+
+
+    <div class="form-group row">
+      <div class="col-sm-6 mt-1">
+        <button class="btn btn-warning">Login</button>
+      </div>
+    </div>
+
+    </form>
+  </div>
+</div>
+</div>
+</div>

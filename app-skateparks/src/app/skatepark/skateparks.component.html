@@ -1,0 +1,88 @@
+<div class="card border-secundary mb-3 mx-3">
+  <div class="card-border">
+  </div>
+  <div class="card-body text-secondary">
+    <h4>Listado de Skate Spots:</h4>
+    <div *ngIf="authService.token;" class="my-2 text-left">
+      <button
+        class="btn btn.rounded btn-secondary"
+        type="button"
+        [routerLink]="['/skateparks/crear']"
+      >
+      <span class="material-icons">
+        add_location_alt
+      </span>
+      <span>AÑADIR SPOT</span>
+      </button>
+
+    </div>
+
+    <table class="table table-striped table-hover">
+      <thead>
+        <tr >
+          <th scope="col">
+            <span class="material-icons">
+              image
+              </span>
+          </th>
+          <th scope="col">#</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Region</th>
+          <th scope="col">Tipo</th>
+          <th scope="col">Dificultad</th>
+          <th scope="col">Puntuacion</th>
+          <th *ngIf="authService.token;" scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of skateparks; let i= index">
+          <th>
+            <img *ngIf="item.imagen" src="http://localhost:8087/api/uploads/images/{{item.imagen}}" class="img-thumbnail rounded"
+            style="width:60px;">
+            <img *ngIf="!item.imagen" src="{{imageSrc}}" alt="sin imagen" class="img-thumbnail rounded"
+            style="width:60px;">
+          </th>
+          <th scope="row">{{item.id}}</th>
+          <td>{{item.nombre}}</td>
+          <td>{{item.region.nombre}}</td>
+          <td>{{item.tipo}}</td>
+          <td>{{item.dificultad}}</td>
+          <td [ngSwitch]="item.puntuacion">
+            <p *ngSwitchCase="1">★</p>
+            <p *ngSwitchCase="2">★★</p>
+            <p *ngSwitchCase="3">★★★</p>
+            <p *ngSwitchCase="4">★★★★</p>
+            <p *ngSwitchCase="5">★★★★★</p>
+            <p *ngSwitchDefault>---</p>
+          </td>
+          <td  *ngIf="authService.token;">
+              <button  type="button" class="btn btn-primary btn-circle m-1" [routerLink]="['/skateparks/ver',item.id]" ><span class="material-icons">
+                visibility
+                </span>
+                </button>
+
+            <button  type="button" class="btn btn-warning btn-circle m-1"  [routerLink]="['/skateparks/editar',item.id]" >
+              <span  class="material-icons ">
+                tune
+                </span>
+            </button>
+            <button  type="button" class="btn btn-danger btn-circle m-1" (click)="delete(item)"><span class="material-icons">
+              delete
+              </span>
+              </button>
+
+
+          </td>
+        </tr>
+
+      </tbody>
+    </table>
+
+
+
+
+  </div>
+</div>
+
+
+

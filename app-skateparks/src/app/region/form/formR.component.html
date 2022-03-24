@@ -1,0 +1,37 @@
+<div class=" card bg-dark txt-white border ">
+  <div class="card-header text-white">
+    {{titulo}}
+  </div>
+  <div class="card-body">
+    <form #regionForm ="ngForm">
+    <div class="form-group row">
+      <label for="nombre" class="text-white col-form-label col-sm-2 text-end">Nombre:</label>
+      <div class="col-sm-6">
+        <input type="text"
+              name="nombre"
+              [(ngModel)]="region.nombre"
+              class="form-control"
+              placeholder="ingresa nuevo nombre"
+              required
+        >
+      </div>
+    </div>
+
+
+    <div class="form-group row">
+      <div class="col-sm-6">
+        <button *ngIf="!region.id" class="btn btn-primary" (click)="create()">Crear</button>
+
+        <button *ngIf="region.id" class="btn btn-primary" (click)="update()">Editar</button>
+
+      </div>
+
+    </div>
+
+
+  </form>
+
+</div>
+
+
+</div>

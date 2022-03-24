@@ -1,0 +1,36 @@
+<div class="card bg-dark text-white border">
+  <div class="card-header">
+    Detalle Skatepark
+  </div>
+  <div class="container ">
+    <div class="row">
+      <div class="col-sm">
+        <ul class="list-group rounded">
+        <li class="list-group-item bg-transparent">
+          <img *ngIf="skatepark.imagen" src="http://localhost:8087/api/uploads/images/{{skatepark.imagen}}" alt="{{skatepark.imagen}}"
+          class="img-thumbnail row">
+          <img *ngIf="!skatepark.imagen" src="{{imageSrc}}" alt="sin imagen"class="img-thumbnail row">
+        </li>
+        <li class="list-group-item rounded mb-1"><strong>Nombre:</strong> {{skatepark.nombre}}</li>
+        <li class="list-group-item rounded mb-1"><strong>Region:</strong> {{skatepark.region.nombre}}</li>
+        <li class="list-group-item rounded mb-1"><strong>Tipo:</strong> {{skatepark.tipo}}</li>
+        <li class="list-group-item rounded mb-1"><strong>Puntuacion:</strong> {{skatepark.puntuacion}}</li>
+        <li class="list-group-item rounded mb-1"><strong>Dificultad:</strong> {{skatepark.dificultad}}</li>
+        <li class="list-group-item rounded mb-1"><strong>Empresa:</strong> {{skatepark.empresa}}</li>
+        <li class="list-group-item rounded mb-1"><strong>Fecha:</strong> {{skatepark.createdAt}}</li>
+        </ul>
+
+        <div class="imput-group ">
+          <div class="custom-file">
+            <label for="inputImg" ></label>
+            <input (change)="seleccionarImagen($event)" type="file" id="inputImg" class="btn btn-outline-secondary" >
+          </div>
+          <div class="input-group-append" >
+            <button (click)="subirImagen()" class="btn btn-warning mt-1 mb-1">Guardar</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,113 @@
+<div class=" card bg-dark txt-white border ">
+  <div class="card-header text-white">
+    {{titulo}}
+  </div>
+  <div class="card-body">
+    <form #skateparkForm ="ngForm">
+    <div class="form-group row">
+      <label for="nombre" class="text-white col-form-label col-sm-2 text-end">Nombre:</label>
+      <div class="col-sm-6">
+        <input type="text"
+              name="nombre"
+              [(ngModel)]="skatepark.nombre"
+              class="form-control"
+              placeholder="ingresa nuevo nombre"
+              required
+        >
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="region" class="text-white col-form-label col-sm-2 text-end">Region:</label>
+      <div class="col-sm-6 mt-1">
+        <select class="form-select" [compareWith]="compararRegion"  name="region" [(ngModel)]="skatepark.region" >
+          <option class="text-secondary" [ngValue]="undefined">Selecciona Región</option>
+          <option *ngFor="let reg of regiones" [ngValue]="reg" >{{reg.nombre}}</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="tipo" class="text-white col-form-label col-sm-2 text-end">Tipo:</label>
+      <div class="col-sm-6">
+        <input type="text"
+              name="tipo"
+              [(ngModel)]="skatepark.tipo"
+              class="form-control mt-1"
+              placeholder="ingresa tipo"
+
+        >
+
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="puntuacion" class="text-white col-form-label col-sm-2 text-end">Puntuación:</label>
+      <div class="col-sm-6">
+        <input type="text"
+              name="puntuacion"
+              [(ngModel)]="skatepark.puntuacion"
+              class="form-control mt-1"
+              placeholder="ingresa puntuacion"
+
+        >
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="dificultad" class=" text-white col-form-label col-sm-2 text-end">Dificultad:</label>
+      <div class="col-sm-6">
+        <input type="text"
+              name="dificultad"
+              [(ngModel)]="skatepark.dificultad"
+              class="form-control mt-1"
+              placeholder="ingresa dificultad"
+        >
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="empresa" class="text-white col-form-label col-sm-2 text-end">Empresa:</label>
+      <div class="col-sm-6">
+        <input type="text"
+              name="email"
+              [(ngModel)]="skatepark.empresa"
+              class="form-control mt-1"
+              placeholder="ingresa Empresa"
+
+        >
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="fecha" class="col-form-label text-white col-sm-2 text-end">Fecha:</label>
+      <div class="col-sm-6">
+        <input type="date"
+              name="fecha"
+              [(ngModel)]="skatepark.createdAt"
+              class="form-control mt-1"
+              placeholder="ingresa nueva fecha"
+        >
+      </div>
+    </div>
+
+
+
+
+    <div class="form-group row">
+      <div class="col-sm-6">
+        <button *ngIf="!skatepark.id" class="btn btn-primary" (click)="create()">Crear</button>
+
+        <button *ngIf="skatepark.id" class="btn btn-primary" (click)="update()">Editar</button>
+
+      </div>
+
+    </div>
+
+
+  </form>
+
+</div>
+
+
+</div>

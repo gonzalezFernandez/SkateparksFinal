@@ -1,0 +1,31 @@
+<div class="card bg-dark text-white border">
+  <div class="card-header">
+    Detalle Region
+  </div>
+  <div class="container ">
+    <div class="row">
+      <div class="col-sm">
+        <ul class="list-group rounded">
+        <li class="list-group-item bg-transparent">
+          <img *ngIf="region.imagen" src="http://localhost:8087/api/uploads/images/{{region.imagen}}" alt="{{region.imagen}}"
+          class="img-thumbnail row">
+          <img *ngIf="!region.imagen" src="{{imageSrc}}" alt="sin imagen"class="img-thumbnail row">
+        </li>
+        <li class="list-group-item rounded mb-1"><strong>Nombre:</strong> {{region.nombre}}</li>
+
+        </ul>
+
+        <div class="imput-group ">
+          <div class="custom-file">
+            <label for="inputImg" ></label>
+            <input (change)="seleccionarImagen($event)" type="file" id="inputImg" class="btn btn-outline-secondary" >
+          </div>
+          <div class="input-group-append" >
+            <button (click)="subirImagen()" class="btn btn-warning mt-1 mb-1">Guardar</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
